@@ -36,43 +36,52 @@ const createImageHead = () => {
  
     const createHead = document.createElement('img')
     createHead.src = 'images/head.png'
+    createHead.id = "myimg"
     imageHead.appendChild(createHead)
 }
 
 const createImageTail = () => {
     const createTail = document.createElement('img')
-    createTail.src = 'images/tail.png'
+    createTail.src = 'images/tail.png';
+
+    createTail.id ="myimg"
 
     imageHead.appendChild(createTail)         
 }
 
 
 
-// const resetgame = () => {
-//     imageHead.removeChild( createImageHead() || createImageTail())
+ const resetgame = () => {
+    const deleteElement = document.getElementById('myimg')
+    return deleteElement.remove()
 
-// }
+   
 
-// console.log(generateTwoRandomNumbers(1,2))
+ }
+
 
 const startgame = () => {
-   const getNum = generateTwoRandomNumbers(1,2)
-console.log(getNum)
-// resetgame()
-    switch (getNum) {
-        case 1:
-            createImageHead()
-            break;
-        case 2:
-            createImageTail()
-            break;
-
-        default:
-            break;
-    }
-
+    
     resetgame()
 
+    const getNum = generateTwoRandomNumbers(1,2)
+        switch (getNum) {
+            case 1:
+                createImageHead()
+                break;
+            case 2:
+                createImageTail()
+                break;
+
+            default:
+                break;
+    }
+
+   
+}
+
+const declearWinner = () => {
+    
 }
 
 
