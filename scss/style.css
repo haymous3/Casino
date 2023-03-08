@@ -51,7 +51,7 @@ body {
   display: flex;
 }
 .game_center_left_imagehead {
-  display: none;
+  display: block;
 }
 .game_center_left_imagetail {
   display: none;

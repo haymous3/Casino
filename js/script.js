@@ -1,4 +1,4 @@
-
+// import hey from '../images/head.png';
 const selectImageOne = document.querySelector('.game_center_right_imgs_one');
 const selectImageTwo = document.querySelector('.game_center_right_imgs_two');
 const playNow = document.querySelector('#playnow');
@@ -32,20 +32,46 @@ const generateTwoRandomNumbers = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const startgame = () => {
-  
-
-
-setTimeout(() => {
-    if(generateTwoRandomNumbers(1, 2) === 1){
-        imageHead.classList.add('display')
-        console.log(generateTwoRandomNumbers(1,2))
-    }else{
-        imageTail.classList.add('display')
-    }
-}, 1000);
+const createImageHead = () => {
  
+    const createHead = document.createElement('img')
+    createHead.src = 'images/head.png'
+    imageHead.appendChild(createHead)
+}
 
+const createImageTail = () => {
+    const createTail = document.createElement('img')
+    createTail.src = 'images/tail.png'
+
+    imageHead.appendChild(createTail)         
+}
+
+
+
+// const resetgame = () => {
+//     imageHead.removeChild( createImageHead() || createImageTail())
+
+// }
+
+// console.log(generateTwoRandomNumbers(1,2))
+
+const startgame = () => {
+   const getNum = generateTwoRandomNumbers(1,2)
+console.log(getNum)
+// resetgame()
+    switch (getNum) {
+        case 1:
+            createImageHead()
+            break;
+        case 2:
+            createImageTail()
+            break;
+
+        default:
+            break;
+    }
+
+    resetgame()
 
 }
 
