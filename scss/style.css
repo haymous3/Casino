@@ -5,9 +5,6 @@
 }
 
 body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #350b2d;
   height: 100vh;
 }
@@ -20,7 +17,7 @@ body {
   position: absolute;
   font-weight: 900;
   font-size: 16px;
-  font-family: "Line Awesome Free" !important;
+  font-family: sans-serif;
   font-size: 14px;
   content: "\f00c";
   top: -8px;
@@ -32,28 +29,73 @@ body {
   border-radius: 50%;
 }
 
+.display {
+  display: block !important;
+}
+
 .game_center {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  height: 100vh;
 }
 .game_center_left, .game_center_right {
   width: 40%;
   background-color: #2e0327;
   line-height: 5rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 3rem 2rem;
 }
 .game_center_left {
   display: flex;
+}
+.game_center_left_imagehead {
+  display: none;
+}
+.game_center_left_imagetail {
+  display: none;
 }
 .game_center_right_imgs {
   display: flex;
   justify-content: space-around;
 }
 .game_center_right_imgs > :first-child, .game_center_right_imgs > :last-child {
-  width: 35%;
-  padding: 1rem;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  width: 200px;
+  height: 200px;
+  position: relative;
 }
 .game_center_right_imgs > :first-child img, .game_center_right_imgs > :last-child img {
   width: 100%;
+}
+.game_center_right_imgs > :first-child .active, .game_center_right_imgs > :last-child .active {
+  border: 2px solid #e6a25d !important;
+  position: relative;
+}
+.game_center_right_imgs > :first-child.active::after, .game_center_right_imgs > :last-child.active::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-weight: 900;
+  font-size: 16px;
+  font-family: "FontAwesome";
+  font-size: 14px;
+  content: "\f00c";
+  top: -8px;
+  right: -10px;
+  width: 25px;
+  height: 25px;
+  background-color: #28C76F;
+  color: #fff;
+  border-radius: 50%;
 }
 .game_center_right_btn {
   width: 90%;
