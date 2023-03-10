@@ -3,66 +3,69 @@ const selectImageOne = document.querySelector('.game_center_right_imgs_one');
 const selectImageTwo = document.querySelector('.game_center_right_imgs_two');
 const playNow = document.querySelector('#playnow');
 const imageHead = document.querySelector('#imagehead');
-const imageTail = document.querySelector('#imagetail')
-const one = document.getElementsByClassName('game_center_right_imgs_one active')
-const two = document.getElementsByClassName('game_center_right_imgs_two active')
 
 
 
-const resultone = one[0]
+
+let headSelect = '';
+let tailSelect = ''
 
 const LoadEventListerners = () => {
     selectImageOne.addEventListener('click', selectHead);
     selectImageTwo.addEventListener('click', selectTail);
+    // selectSide.addEventListener('click', one)
+    // tailSelect.addEventListener('click', two)
+   
     
 
 }
 
-let getNum;
-let headSelect;
-let tailSelect;
+
 
 
 const selectHead = () => {
-    selectImageOne.classList.add('active')
-    selectImageTwo.classList.remove('active')
+    
+    selectImageOne.classList.add('active');
+    selectImageTwo.classList.remove('active');
 
-    // console.log(one[0])
-     
-    // if(one[0].className === 'game_center_right_imgs_one active'){
-    //     return 1
-    // }
+   return document.getElementsByClassName('game_center_right_imgs_one active');
 
-    // return one[0].className;
-
-    return 1
-   
+//    return headSelect
 
 }
 
 
-
+// headSelect = selectHead()
 
 
 const selectTail = () => {
     selectImageOne.classList.remove('active');
     selectImageTwo.classList.add('active');
 
-    // if(two[0].className === 'game_center_right_imgs_two active'){
-    //     return 2
-    // }
-
-    // return two[0].className;
-
-    return 2
-
+    return document.getElementsByClassName('game_center_right_imgs_two active');
 }
 
-LoadEventListerners()
- 
+// console.log(headSelect)
+// tailSelect = selectTail()
+
 const generateTwoRandomNumbers = (min, max) => {
 
     return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+const identifyUserClick = (head, tail) => {
+
+    if(head){
+        return 1
+    }else if(tail){
+        return 2
+    }
+    if(tail === false){ 
+        return 1
+    }else if(head === false){
+        return 2
+    }
+
 }
 
 
@@ -92,27 +95,22 @@ const createImageTail = () => {
 
    
 
+   
+
  }
-
- 
-
- headSelect = selectHead();
-tailSelect = selectTail();
-
-
 
 
 
 const startgame = () => {
     resetgame()
-   
     
+
+  
      getNum = generateTwoRandomNumbers(1,2)
 
-     headSelect = selectHead();
-     tailSelect = selectTail();
+     let choose = identifyUserClick(selectHead(), selectTail())
 
-    
+     
     if(getNum === 1){
         createImageHead()
     }else if(getNum === 2){
@@ -121,73 +119,46 @@ const startgame = () => {
         null
     }
 
-    declearWinner()
+    
+    console.log(choose)
     console.log(getNum)
-    // console.log(headSelect)
-
- 
-}
-
-console.log(headSelect)
-const declearWinner = () => {
-
-    switch (true) {
-        case headSelect === getNum:
-            alert('You win')
-            break;
-        case tailSelect === getNum:
-            alert('You win')
-            break;
-        case headSelect < getNum:
-            alert('You lose')
-            break;
-        case tailSelect > getNum:
-            alert('You lose')
-        default:
-            break;
+    
+    if(choose === getNum){
+        alert('You won')
+    }else{
+        alert('try again')
     }
 
-    
-    // if(headSelect === 1 &&  getNum === 1){
-    //     alert('You win')
-    //     return;
-    // } else{
-    //     alert('nop')
-    // }
-    
-    // if(tailSelect === 2 && getNum === 2 ){
-    //     alert('You don win')
-    // }else{
-    //     alert('You lost')
-    // }
-    
 }
 
 
 
+// const declearWinner = () => {
+
+//     switch (true) {
+//         case headSelect === getNum:
+//             alert('You win')
+//             break;
+//         case tailSelect === getNum:
+//             alert('You win')
+//             break;
+//         case headSelect < getNum:
+//             alert('You lose')
+//             break;
+//         case tailSelect > getNum:
+//             alert('You lose')
+//         default:
+//             break;
+//     }
+
+    
+    
+// }
+
+
+LoadEventListerners()
+
 playNow.addEventListener('click', startgame)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -212,3 +183,6 @@ playNow.addEventListener('click', startgame)
 //     alert('you lose')
     
 // }
+
+
+
