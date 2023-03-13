@@ -13,26 +13,41 @@
 <body>
 
     <div class="game_center">
+        <p id="numbercount" class="numbercount">0</p>
         <div class="game_center_left">
-            <div id="imagehead" class="game_center_left_imagehead">
-                <img src="" alt="" id="myimg">
+            <div class="game_center_left_one">
+                <div class="game_center_left_one_imagehead">
+                    <img src="images/head.png" alt="" class="myimg">
+              
+                </div>
+                <div class="game_center_left_one_imagetail">
+                    <img src="images/tail.png" alt="" class="myimg">
+                </div>
             </div>
-          
+            <div class="game_center_left_two">
+                <div id="imagehead" class="game_center_left_two_imagehead">
+                    <img src="images/head.png" alt="" class="myimg">
+              
+                </div>
+                <div class="game_center_left_two_imagetail" id="imagetail">
+                    <img src="images/tail.png" alt="" class="myimg">
+                </div>
+            </div>
             
-
         </div>
         <div class="game_center_right">
             <div class="game_center_right_imgs">
-                <div class="game_center_right_imgs_one">
+                <button class="game_center_right_imgs_one" id="select_img_head">
                     <img src="images/head.png" alt="">
-                </div>
-                <div class="game_center_right_imgs_two">
+                   
+                </button>
+                <button class="game_center_right_imgs_two" id="select_img_tail">
                     <img src="images/tail.png" alt="">
-                </div>
+                </button>
                 
             </div>
             <div class="game_center_right_btn">
-                <button id="playnow">Play Now</button>
+                <button id="playnow" class="play">Play Now</button>
             </div>
 
         </div>
