@@ -55,14 +55,14 @@ const selectTail = () => {
 
 
 const a = () => {
-    result =  randomwinners(0.9, 1, 2)
+    result =  randomwinners(0.6, 1, 2)
     console.log(result)
    return result
     
 }
 
 const b = () => {
-    results =  randomwinners(0.9, 1, 2)
+    results =  randomwinners(0.6, 1, 2)
 console.log(results)
     return results
 }
@@ -75,18 +75,38 @@ const startgame = () => {
 gameCenterOne.style.display = 'none'
 
        if(result === 1 && myfunvtion){
+        
+     imageTail.style.display = 'block'
+     setTimeout(() => {
         alert('computer win')
-       return imageTail.style.display = 'block'
-       
+        myfunvtion = false
+     }, 1000);
+     
       
     }
+    
     else if(results === 1){
-        imageHead.style.display = 'block'
-        alert('computer win')
+        imageHead.style.display = 'block';
 
-    }else{imageHead.style.display = 'block'
-        imageTail.style.display = 'block'
+        setTimeout(() => {
+            alert('computer win')
+        }, 1000);
+       
+
+    }else if(result === 2){
+        imageHead.style.display = 'block'
+       setTimeout(() => {
         alert('you win')
+       }, 1000);
+        
+    }
+
+    else if(results === 2){
+        imageTail.style.display ='block'
+        setTimeout(() => {
+            alert('you win')
+        }, 1000);
+        
     }
    
 
